@@ -37,7 +37,7 @@ function provider (registry, { Biome, version }) {
       const block = registry.blocks[id]
       const shapesId = shapes.blocks[block.name]
       block.shapes = (shapesId instanceof Array) ? shapes.shapes[shapesId[0]] : shapes.shapes[shapesId]
-      if (block.states || version.type === 'bedrock') { // post 1.13
+      if (shapesId instanceof Array || block.states || version.type === 'bedrock') { // post 1.13
         if (shapesId instanceof Array) {
           block.stateShapes = []
           for (const i in shapesId) {
